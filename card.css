@@ -1,0 +1,266 @@
+:root {
+    --bg-top: #f8f5ee;
+    --bg-bottom: #d6efe7;
+    --card-front-start: #0f766e;
+    --card-front-end: #0e9f87;
+    --card-back-start: #164e63;
+    --card-back-end: #0369a1;
+    --text-light: #f7fffd;
+    --accent: #f6c453;
+    --surface: #ffffff;
+    --ink: #0f172a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(246, 196, 83, 0.25) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.25) 0%, transparent 40%),
+        linear-gradient(165deg, var(--bg-top), var(--bg-bottom));
+    color: var(--ink);
+}
+
+.scene {
+    animation: rise-in 0.8s ease-out;
+}
+
+.card-container {
+    perspective: 1400px;
+}
+
+.card {
+    width: min(94vw, 420px);
+    height: 265px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 22px;
+}
+
+.card:hover {
+    transform: rotateY(180deg) translateY(-6px);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 22px;
+    overflow: hidden;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.22);
+}
+
+.card-front::before,
+.card-back::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.2), transparent 45%),
+        linear-gradient(transparent 65%, rgba(0, 0, 0, 0.12));
+    pointer-events: none;
+}
+
+.card-front {
+    color: var(--text-light);
+    background: linear-gradient(135deg, var(--card-front-start), var(--card-front-end));
+}
+
+.card-back {
+    color: var(--text-light);
+    background: linear-gradient(140deg, var(--card-back-start), var(--card-back-end));
+    transform: rotateY(180deg);
+}
+
+.profile-pic {
+    width: 94px;
+    height: 94px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    margin-bottom: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 0.96rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 7px;
+}
+
+.meta {
+    font-size: 0.86rem;
+    opacity: 0.95;
+    line-height: 1.35;
+}
+
+.card-back p {
+    font-size: 0.92rem;
+    margin-bottom: 7px;
+}
+
+a {
+    color: #fdf3cb;
+    text-decoration-color: rgba(253, 243, 203, 0.7);
+}
+
+button {
+    margin-top: 10px;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+#action-btn {
+    background: linear-gradient(120deg, var(--accent), #ffd977);
+    color: #503500;
+    box-shadow: 0 8px 18px rgba(246, 196, 83, 0.35);
+}
+
+#action-btn:hover {
+    background: linear-gradient(120deg, #ffd977, var(--accent));
+}
+
+.contact-form-container {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    background: rgba(15, 23, 42, 0.64);
+    backdrop-filter: blur(5px);
+}
+
+.contact-form-container.visible {
+    display: flex;
+}
+
+.contact-form {
+    width: min(95vw, 360px);
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.35);
+    animation: pop-in 0.25s ease-out;
+}
+
+.contact-form h2 {
+    color: #0f766e;
+    margin-bottom: 14px;
+}
+
+.contact-form label {
+    font-size: 0.88rem;
+    color: #1e293b;
+    display: block;
+    margin: 10px 0 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font: inherit;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 92px;
+}
+
+.contact-form button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contact-form button[type="submit"] {
+    background: linear-gradient(120deg, #0f766e, #0ea5a3);
+    color: #f8fafc;
+}
+
+.contact-form button[type="button"] {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+@media (max-width: 480px) {
+    .card {
+        height: 280px;
+    }
+
+    h1 {
+        font-size: 1.35rem;
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+    }
+}
+
+@keyframes rise-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pop-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

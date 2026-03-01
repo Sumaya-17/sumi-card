@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumii's Portfolio Card</title>
+    <link rel="stylesheet" href="card.css">
+</head>
+<body>
+    <div class="scene">
+        <div class="card-container">
+            <div class="card">
+                <div class="card-front">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNf02rRkX211I_5fIcsy8Jv0KyCJUihKtdpw&s" alt="Saheedha Sumaya profile picture" class="profile-pic">
+                    <h1>Saheedha Sumaya</h1>
+                    <p class="tagline">AI &amp; Data Science Enthusiast | Aspiring Developer</p>
+                    <p class="meta">Final Year Student | Mohamed Sathak Engineering College</p>
+                </div>
+            <div class="card-back">
+                <h2>Contact Me</h2>
+                <p>Email: sumaiyasahida000@gmail.com</p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/saheedha-sumaya-38435a261?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">linkedin.com/in/sumii</a></p>
+                <button id="action-btn">Message Me</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="contact-form-container" id="contact-form-container">
+        <form class="contact-form" id="contact-form">
+            <h2>Contact Sumii</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Write your message" required></textarea>
+            
+            <button type="submit">Send</button>
+            <button type="button" id="close-form">Close</button>
+        </form>
+    </div>
+
+    <script src="card.js"></script>
+</body>
+</html>
